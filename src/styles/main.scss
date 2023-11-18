@@ -28,7 +28,7 @@
   height: 58px;
   background-color: $theme-color-sub;
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 3개의 컬럼이 균등한 너비를 가짐 */
+  grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼이 균등한 너비를 가짐 */
 }
 
 main {

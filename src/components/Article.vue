@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="article">
-    <button @click="back">목록으로</button>
+    <div style="text-align: right"><button @click="back">목록으로</button></div>
     <h1 class="title">{{ article.title }}</h1>
     <hr class="line" />
     <div class="author">
@@ -12,10 +12,9 @@
       <div class="image-box">
         <img v-if="item.type == 'image'" class="attr" :src="item.contents" />
       </div>
-      <div v-if="item.type == 'text'" class="text">
-        <pre>{{ item.contents }}</pre>
-      </div>
+      <div v-if="item.type == 'text'" class="text">{{ item.contents }}</div>
     </div>
+    <div style="text-align: right"><button @click="back">목록으로</button></div>
   </div>
 </template>
 

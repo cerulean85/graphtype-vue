@@ -35,8 +35,8 @@ export default {
   data() {
     return {
       categories: [
-        { id: 0, name: "Articles", to: "/article_list", selected: true },
-        { id: 1, name: "About", to: "/about", selected: false },
+        { id: 0, name: "About", to: "/about", selected: false },
+        { id: 1, name: "Articles", to: "/article_list", selected: true },
         { id: 2, name: "Release", to: "/release", selected: false },
       ],
     };

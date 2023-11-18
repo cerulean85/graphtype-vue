@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <span class="count"> 게시글: {{ articleList.length }}건</span>
+    <span class="count"> 게시글 {{ articleList.length }}건</span>
     <hr class="line" />
     <div class="row" v-for="article in articleList" :key="article.articleId">
       <div class="layout">

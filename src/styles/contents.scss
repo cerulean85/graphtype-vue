@@ -95,6 +95,7 @@
 .article {
 
   margin-top: 32px; 
+  margin-bottom: 48px;
   padding: 0px 24px 15px 24px;
   font-family: 'Noto Sans KR', sans-serif;  
   color: $theme-color-font-main;
@@ -115,8 +116,7 @@
     overflow: hidden;
     overflow-wrap: break-word;
     margin-top: 12px;
-    margin-bottom: 50px;
-    white-space: pre;
+    margin-bottom: 24px;
   }
 
   .image-box {
