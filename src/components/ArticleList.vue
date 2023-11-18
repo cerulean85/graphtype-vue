@@ -36,7 +36,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:8081/articles/basic")
+      .get("https://blog-rest.kkennib.net/articles/basic")
       .then((response) => {
         this.articleList = response.data;
       })

@@ -64,5 +64,5 @@
     "not dead",
     "not ie 11"
   ],
-  "proxy": "http://localhost:8081"
+  "proxy": "https://blog-rest.kkennib.net"
 }

@@ -34,7 +34,7 @@ export default {
   mounted() {
     axios
       .get(
-        `http://localhost:8081/article/${this.$route.params.articleId}/basic`
+        `https://blog-rest.kkennib.net/article/${this.$route.params.articleId}/basic`
       )
       .then((response) => {
         this.article = response.data;
