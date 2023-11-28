@@ -3,16 +3,18 @@ import { createApp } from "vue";
 import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
-import ArticleList from './components/ArticleList.vue';
+import ArticleListComplex from './components/ArticleListComplex.vue';
 import About from './components/About.vue';
 import Release from './components/Release.vue';
-import Article from './components/Article.vue';
+import ArticleDetailComplex from './components/ArticleDetailComplex.vue';
+import ArticleEditorComplex from './components/ArticleEditorComplex.vue';
 
 const routes = [
-  { path: '/article_list', name: 'article_list', component: ArticleList },
+  { path: '/article_list', name: 'article_list', component: ArticleListComplex },
   { path: '/about', component: About },
   { path: '/release', component: Release },
-  { path: '/article/:articleId', name: 'article', component: Article },
+  { path: '/article/:articleId', name: 'article_detail', component: ArticleDetailComplex },
+  { path: '/article_editor', component: ArticleEditorComplex },
 ];
 
 const router = createRouter({

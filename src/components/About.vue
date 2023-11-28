@@ -35,12 +35,58 @@
       <li>클라우드 네이티브의 프로그래머 될 것</li>
     </ul>
   </div>
+
+  <BlogPost :title="ttl"></BlogPost>
+  <BlogPost v-bind="post"></BlogPost>
+  <div :style="{ fontSize: postFontSize + 'em' }">
+    <blog-post 
+      v-for="post in posts"
+      :key="post.id"
+      :title="post.title"
+      @enlarge-text="postFontSize += 0.1">
+      이히히히힠ㅋ
+    </blog-post>
+    
+  </div>
+
 </template>
 
-<script>
-export default {
-  // 컴포넌트 로직 추가
-};
+<script setup lang="ts">
+
+import { ref, computed } from 'vue'
+
+const yetAnotherSum: (a: number, b:number) => number = (a, b) => (a + b);
+
+function square(value: number, returnString: boolean = false): string | number {
+  if (returnString)
+    return "String";
+  return value;
+}
+
+const rst1: string | number = square(5);
+const rst2: string | number = square(5, true);
+// const title = ref("ㅎㅎㅎㅎㅎㅎㅎㅎ")
+
+const post = ref({
+  title: "ㅂㅂㅂㅂㅂㅂㅂ",
+  likes: 50
+});
+
+post.value.title = "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ22222222"
+const ttl = computed(() => post.value.title + 'wwwq' )
+
+import BlogPost from './BlogPost.vue'
+
+const posts = ref([
+  { id: 1, title: 'Vue와 함께한 나의 여행' },
+  { id: 2, title: 'Vue로 블로깅하기' },
+  { id: 3, title: 'Vue가 재미있는 이유' },
+])
+
+const postFontSize = ref(1)
+
+
+
 </script>
 
 <style lang="scss">

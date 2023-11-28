@@ -29,38 +29,48 @@
   </div>
 </template>
 
-<script>
-export default {
-  // App 컴포넌트 로직 추가
-  data() {
-    return {
-      categories: [
-        { id: 0, name: "About", to: "/about", selected: false },
-        { id: 1, name: "Articles", to: "/article_list", selected: true },
-        { id: 2, name: "Release", to: "/release", selected: false },
-      ],
-    };
-  },
-  methods: {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    selectMainMenu(categoryId) {
-      this.categories.forEach((e) => {
-        e.selected = e.id == categoryId ? true : false;
-      });
-    },
-    changeMainMenuColor(category) {
-      // isActive 값에 따라 동적으로 스타일 객체 생성
-      return {
-        color: category.selected ? "black" : "#f5f5f5",
-        // 추가적인 스타일 속성들을 필요에 따라 추가할 수 있습니다.
-      };
-    },
-  },
-  mounted() {
-    // 컴포넌트가 마운트될 때 클릭 이벤트를 발생시킴
-    this.changeMainMenuColor(this.categories[0]);
-  },
-};
+<script setup lang="ts">
+
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router'
+
+interface Category {
+  id: number;
+  name: string;
+  selected: boolean;
+}
+
+interface ColorStyle {
+  color: string;
+}
+
+const categories = ref([
+  { id: 0, name: "About", to: "/about", selected: false },
+  { id: 1, name: "Articles", to: "/article_list", selected: true },
+  { id: 2, name: "Release", to: "/release", selected: false },
+  { id: 3, name: "Editor", to: "/article_editor", selected: false },
+]);
+
+function selectMainMenu(categoryId: number): void {
+  categories.value.forEach((e) => {
+    e.selected = e.id == categoryId ? true : false;
+  });
+}
+
+function changeMainMenuColor(category: Category): ColorStyle {
+  return {
+    color: category.selected ? "black" : "#f5f5f5",
+  };
+}
+
+onMounted(() => {
+  changeMainMenuColor(categories.value[0]);
+  selectMainMenu(0);  
+});
+
+const router = useRouter();
+router.push('/about');
+
 </script>
 
 <style lang="scss">
