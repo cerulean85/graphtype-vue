@@ -1,8 +1,50 @@
+- sudo apt install nginx
+
+- sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/lots 
+- sudo vim /etc/nginx/sites-available/lots 
+=============================================
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name lots.kkennib.net;
+        return 301 https://lots.kkennib.net;
+}
+=============================================
+- sudo ln -s /etc/nginx/sites-available/lots /etc/nginx/sites-enabled/lots
+
+- sudo vim /etc/nginx/sites-available/lots-ssl
+=============================================
+server {
+        listen 443 ssl;
+        server_name lots.kkennib.net;
+        ssl_certificate /etc/letsencrypt/live/lots.kkennib.net/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/lots.kkennib.net/privkey.pem;
+
+        location / {
+                root /home/ubuntu/git/graphtype-vue/dist;
+                index index.html;
+                try_files $uri $uri/ /index.html;
+        }
+}
+=============================================
+- sudo ln -s /etc/nginx/sites-available/lots-ssl /etc/nginx/sites-enabled/lots-ssl
+
+- sudo vim /etc/nginx/nginx.conf
+=============================================
+1번줄 => user www-data → ubuntu 로 변경
+=============================================
+- tail -f /var/log/nginx/error.log # 로그 확인
+
+- sudo snap install --classic certbot
+- sudo service stop nginx
+- sudo certbot certonly --standalone -d lots.kkennib.net # nginx 내린 후 80포트가 닫힌 상태에서 진행해야 함
+- sudo service start nginx
+
 - sudo service start nginx
 - sudo service stop nginx
 - sudo service restart nginx
 
-- certbot certonly --standalone -d blog.kkennib.net
+- certbot certonly --standalone -d lots.kkennib.net
 - certbot certonly --standalone -d blog-rest.kkennib.net
  
 - /etc/nginx/sites-available/vue-app
@@ -14,8 +56,6 @@
 
 - $ crontab -e # 이걸로 들어가서 아래를 입력해주자. 아래는 매월 1일 4시에 SSL 갱신
 - 0 4 1 * * certbot renew --pre-hook "nginx -s stop"--post-hook "nginx"--renew-hook ="sudo systemctl restart nginx"
--  자동 갱신이 되어도 간혹 php-fpm이 종료되지 않아 인증오류에 인해 통신이 제대로 안 될 수 있음. 따라서 아래 명령어를 입력하여 nginx 프로세스를 모두 죽인 후에 재실행할 것
-
 
 - pkill -9 -f nginx
 - systemctl stop nginx
