@@ -1,93 +1,130 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div id="main">
+  <div id="main" class="about">
     <h1 class="title">About.</h1>
     <hr />
-    <ul>
-      <li>닉네임: kkennib</li>
-      <li>관심사: Software Engineering / AI / Data Pipeline</li>
-      <li>
-        근래 주요하게 다루는 툴: C#/WPF/SQLite(업무), Java/SpringBoot,
-        JavaScript/Vue.js, DynamoDB
-      </li>
-      <li>
-        그 외 다뤄본 툴: Python, Nodejs, MongoDB, Numpy, Pandas, NetworkX,
-        Django, PHP, Nginx, Nginx, ElasticSearch, Hadoop, AWS
-        EC2/S3/DynamoDB/Lambda, gRPC, Kafka, Redis
-      </li>
-      <li>
-        다뤄본 이론 및 개념: SNA(사회 연결망 분석), 머신러닝(~LSTM까지),
-        기초통계, 탐색적 분석, 임베딩, 텍스트마이닝 등
-      </li>
-      <li>공부중: ChatGPT, DALL-E 등 Text-to-X 모델</li>
-      <li>연구중: Generative AI와 미래</li>
-      <li>근무중: 물류 분야 SW 개발</li>
-      <li>진행중인 토이 프로젝트: 개인 블로그, 포트폴리오</li>
-      <li>자격증: PE 준비중</li>
-      <li>다루고 싶은 툴: Kubernetes</li>
-    </ul>
-    <h2>비전</h2>
-    <ul>
-      <li>
-        SW에 대한 인사이트를 연구하고 지식과 지혜, 경험을 사람들과 나누는 일
-      </li>
-      <li>AI를 적극 활용하며 다양한 콘텐츠를 만들고 공유할 것</li>
-      <li>클라우드 네이티브의 프로그래머 될 것</li>
-    </ul>
+    
+    <div class="scroll-container">
+      <ul>
+        <h2>기본 정보</h2>
+        <li>닉네임: kkennib</li>
+        <li>관심사: Generative AI, Text-to-X Model, AI Services</li>
+        <li>비전: AI를 적극 활용하며 다양한 콘텐츠를 만들고 공유할 것</li>
+      </ul>    
+      <br/>
+      <ul>
+        <h2>주요 역할</h2>
+        <li>아이디어 기획</li>
+        <li>아이디어 시각화 위한 디자인</li>
+        <li>콘텐츠 제작</li>
+        <li>프로토타입 수준의 UI 구현</li>
+        <li>프로세스 및 시스템 구축과 정립</li>
+        <!-- <li>
+          근래 주요하게 다루는 툴: C#/WPF/SQLite(업무), Java/SpringBoot,
+          JavaScript/Vue.js, DynamoDB
+        </li>
+        <li>
+          그 외 다뤄본 툴: Python, Nodejs, MongoDB, Numpy, Pandas, NetworkX,
+          Django, PHP, Nginx, Nginx, ElasticSearch, Hadoop, AWS
+          EC2/S3/DynamoDB/Lambda, gRPC, Kafka, Redis
+        </li>
+        <li>
+          다뤄본 이론 및 개념: SNA(사회 연결망 분석), 머신러닝(~LSTM까지),
+          기초통계, 탐색적 분석, 임베딩, 텍스트마이닝 등
+        </li> -->
+        <!-- <li>공부중: ChatGPT, DALL-E 등 Text-to-X 모델</li>
+        <li>연구중: Generative AI와 미래</li>
+        <li>근무중: 물류 분야 SW 개발</li>
+        <li>진행중인 토이 프로젝트: 개인 블로그, 포트폴리오</li>
+        <li>자격증: PE 준비중</li>
+        <li>다루고 싶은 툴: Kubernetes</li> -->
+      </ul>
+      <!-- <h2>비전</h2>
+      <ul>
+        <li>
+          SW에 대한 인사이트를 연구하고 지식과 지혜, 경험을 사람들과 나누는 일
+        </li>
+        <li>AI를 적극 활용하며 다양한 콘텐츠를 만들고 공유할 것</li>
+        <li>클라우드 네이티브의 프로그래머 될 것</li>
+      </ul> -->
+    </div>
   </div>
 
-  <BlogPost :title="ttl"></BlogPost>
-  <BlogPost v-bind="post"></BlogPost>
-  <div :style="{ fontSize: postFontSize + 'em' }">
-    <blog-post 
-      v-for="post in posts"
-      :key="post.id"
-      :title="post.title"
-      @enlarge-text="postFontSize += 0.1">
-      이히히히힠ㅋ
-    </blog-post>
-    
-  </div>
+
+<!-- 
+
+  - 이벤트 기반 서버 사이드 네트워크 애플리케이션 개발 플랫폼
+  - 논블록킹 I/O와 단일 스레드, 이벤트 루프를 통해 높은 처리 성능과 확장성을 가진
+
+  논블록킹이란?
+  - 다른 함수를 호출할 때 코드를 실행할 수 있는 제어권을 넘기지 않고 갖고 있음
+  
+  블록킹
+  - 호출함수가 피호출함수 호출 후 중단됨
+  - 피호출함수에 의해 자원이 선점됨
+  - 함수 간 자원 사용을 간섭함
+
+  논블록킹
+  - 호출함수가 피호출함수 호출 후에도 중단되지 않음
+  - 피호출함수에게 별도의 자원이 부여됨
+  - 함수 간 자원 사용이 독립적
+
+  동기: 순차적으로 함수들이 실행됨
+
+  비동기: 무작위로 함수들이 실행됨
+
+  - 다음 작업을 다른 함수의 실행 결과와 무관하게 진행함
+
+
+동기-블록킹
+- 호출함수와 피호출함수 간 순차적으로 처리되고, 호출함수의 실행 흐름이 피호출함수의 처리 결과를 필요로 함
+
+동기-논블록킹
+- 호출함수의 실행 흐름이 피호출함수의 처리 결과를 필요로 하지만, 호출함수와 피호출함수 간의 
+
+
+동기/비동기, 블록킹/논블록킹에 대하여
+
+동기/비동기는 작업이 전달되는 방식을 의미하고,
+블록킹/논블록킹은 작업 처리기의 독립적인 동작 가능 여부를 의미함
+
+어떤 작업 전달자에 의해 작업이 전달된다면 동기 방식이고,
+어떤 공간을 통해 처리기가 작업을 가져간다면 비동기 방식임
+
+작업을 처리하는 각 처리기들이 독립적으로 동작한다면 논블록킹 방식이지만,
+선행의 처리기가 중단되어야 다음 처리기가 동작할 수 있다면 블록킹 방식임
+
+
+동기-블록킹 방식은 작업 전달 및 처리 간섭에 의한 딜레이가 발생함
+비동기-블록킹 방식은 작업 전달에 의한 딜레이는 없으니 처리 간섭 딜레이는 존재함
+비동기-논블록킹 방식은 작업 전달 및 처리 간섭에 의한 모든 딜레이가 최소화됨. 다만, 처리기가 독립적으로 작동시키기 위한 자원 소모가 많음
+동기-논블록킹 방식은 작업 전달에 의해 전체적인 딜레이가 결정됨
+
+팀장이 일일이 돌아다니며 팀원들에게 일을 배분하는 건 동기식
+어디 하나의 리스트에 일을 정리해놓고 팀원들이 알아서 일을 가져가게 한다면 비동기식
+
+만약 팀원들이 노트북으로 일을 하지만, 모두 배터리가 없고 충전기가 하나만 있다면 블록킹
+모두 각자 충전기를 하나씩 가졌다면 논블록킹
+
+어떤 작업들이 논리적으로 선/후행 관계가 있다면 이것은 블록킹의 개념으로 해석해야 하며,
+동기의 개념은 단순히 일의 전달 방식이라고 봐야 함
+
+
+이벤트 루프?
+
+이거 뭐 별거 없다.
+
+자바스크립트 코드는 동기와 비동기 코드로 나뉜다.
+동기 코드는 Call Stack에 바로 쌓이지만, 비동기 코드는 Web API에 의해 처리해서 callback을 Task Queue에 등록한다.
+이벤트 루프는 Call Stack에 비면 Task Queue의 callback함수를 Call Stack으로 옮겨 버린다.
+그럼 자바스크립트 엔진은 Call Stack의 함수를 처리할 것이다.
+그러니까 이벤트 루프는 Call Stack을 살펴보고 Task Queue의 함수를 Call Stack으로 옮기는 역할을 한다.
+
+자바스크립트가 싱글쓰레드인 이유는?
+제어가 쉬워서이다-_- 멀티쓰레딩이나 멀티프로세시을 환경 경험해 본 사람이라면 이 이유에 무릎을 탁 칠 것이다. -->
 
 </template>
 
-<script setup lang="ts">
-
-import { ref, computed } from 'vue'
-
-const yetAnotherSum: (a: number, b:number) => number = (a, b) => (a + b);
-
-function square(value: number, returnString: boolean = false): string | number {
-  if (returnString)
-    return "String";
-  return value;
-}
-
-const rst1: string | number = square(5);
-const rst2: string | number = square(5, true);
-// const title = ref("ㅎㅎㅎㅎㅎㅎㅎㅎ")
-
-const post = ref({
-  title: "ㅂㅂㅂㅂㅂㅂㅂ",
-  likes: 50
-});
-
-post.value.title = "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ22222222"
-const ttl = computed(() => post.value.title + 'wwwq' )
-
-import BlogPost from './BlogPost.vue'
-
-const posts = ref([
-  { id: 1, title: 'Vue와 함께한 나의 여행' },
-  { id: 2, title: 'Vue로 블로깅하기' },
-  { id: 3, title: 'Vue가 재미있는 이유' },
-])
-
-const postFontSize = ref(1)
-
-
-
-</script>
 
 <style lang="scss">
 @import "@/styles/contents.scss";

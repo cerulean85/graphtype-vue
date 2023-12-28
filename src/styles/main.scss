@@ -1,34 +1,46 @@
 @import '../styles/variables.scss';
 @import url($font_noto-sans);
 
+body{
+  overflow: hidden;
+}
+
 .layout-app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.centered-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-}
-
-.layout-title {
+header {
   width: 100%;
-  height: 200px;
-    
-  font-family: 'Noto Sans KR', sans-serif;  
-  font-weight: 700;
-  font-size: $title-font-size;
-  background-color: $theme-color-main; //#e74c3c
-  color: $theme-color-white
-}
-
-.layout-main-menu {
   height: 58px;
-  background-color: $theme-color-sub;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 3개의 컬럼이 균등한 너비를 가짐 */
+
+  .layout-title {
+    width: 100%;
+    height: 0px;
+    visibility: collapse;
+      
+    font-family: 'Noto Sans KR', sans-serif;  
+    font-weight: 700;
+    font-size: $title-font-size;
+    background-color: $theme-color-main; //#e74c3c
+    color: $theme-color-white
+  }
+
+  .centered-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+  }
+
+  .layout-main-menu {
+    height: 58px;
+    background-color: $theme-color-sub;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼이 균등한 너비를 가짐 */
+  }
+
+
 }
 
 main {
@@ -86,4 +98,16 @@ footer {
 body {
   padding: 0;
   margin: 0;
+}
+
+.about {
+  font-family: 'Noto Sans KR', sans-serif; 
+  padding: 12px 12px 0px 12px;
+}
+
+.scroll-container {
+  height: 76vh;
+  overflow-y: scroll;  
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

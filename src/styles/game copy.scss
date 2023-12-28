@@ -1,0 +1,178 @@
+@import '../styles/variables.scss';
+@import url($font_noto-sans);
+
+.gameframe {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+
+  font-family: 'Noto Sans KR', sans-serif;
+
+  .playground {
+    width: 70%;
+    height: 100%;
+    background-color: bisque;
+
+    .playarea {
+      width: 100%;
+      height: calc(100% - 56px);  
+      background-color: aquamarine;
+      display: flex;
+      justify-content: center;
+
+      .playarea-layout {
+        width: 100%;
+        height: 100%;
+        
+
+        .play-zone {
+          width:56%;
+          height: calc(100% - 56px);
+          position: absolute;
+          background-color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        // .label-list-adj-bar {
+        //   width: 8px;
+        //   height: calc(100% - 56px);
+        //   background-color: aqua;
+        //   display: flex;
+        // }
+
+        .label-list-complex {
+          width: 20%; height: 100%;
+          margin-left: 80%;
+          display: flex;
+          background-color: chartreuse;
+
+          .complex-layout {
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: row;
+
+            .list-adj-bar {
+              width: 20px;
+              height: 100%;
+              background-color: deepskyblue;
+              cursor: pointer;
+              position: relative;
+              left: 0px;
+            }
+
+            .list-layout {
+              width: calc(100% - 20px); height: 100%;
+              display: flex;
+              flex-direction: column;
+              background-color: chocolate;
+              position: relative;
+
+              .title {
+                width: 100%;
+                height: 44px;
+                font-size: 20px;
+                font-weight: 700;
+                background-color: burlywood; //#E6E6E9;            
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+              
+              .list-layout {
+                width: 100%;
+                height: calc(100% - 44px);
+                background-color: blue; //white;
+                display: flex;
+                flex-direction: column;
+                overflow-y: scroll;  
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
+                
+
+                .label-box {
+                  width: calc(100% - 12px);
+                  height: 40px;                    
+                  margin-top: 6px;
+                  margin-left: 6px;
+                  margin-right: 6px;
+                  border-radius: 5px;
+                  display: flex;
+
+                  .label-txt {
+                    width: calc(100% - 50px);
+                    height: 40px;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #E6E6E9;
+                  }
+
+                  button {
+                    width: 50px;
+                    height: 40px;
+                  }
+                }
+              }
+
+              .list-layout::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera*/
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .inputarea {
+      width: 100%;
+      height: 56px;  
+
+      .text-input-zone {
+        width: 100%;
+        height: 100%;
+        background-color: #E6E6E9;
+
+        .send-button {
+          width: 74px;
+          height: 36px;
+          cursor: pointer;
+          float: right;         
+          margin-top: 10px;
+          margin-right: 8px;
+          font-size: 16px;
+        }
+
+        .text-input {
+          width: calc(100% - 122px);
+          height: 36px;
+          font-size: 16px;
+          border: none;          
+          margin-left: 10px;
+          margin-right: 4px;
+          margin-top: 10px;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }      
+    }
+  }
+
+  .choose-message {
+    font-size: 80px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .choose {
+    width: 150px;
+    height: 56px;
+    font-size: 22px;
+  }
+}
+

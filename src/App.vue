@@ -2,7 +2,7 @@
 <template>
   <div id="app" class="layout-app">
 
-    <header>
+    <!-- <header>
       <div class="layout-title centered-content">
         <div>Awesome Mate!</div>
       </div>
@@ -15,7 +15,7 @@
           </router-link>
         </div>
       </div>
-    </header>
+    </header> -->
 
     <main>
       <router-view></router-view>
@@ -45,10 +45,11 @@ interface ColorStyle {
 }
 
 const categories = ref([
-  { id: 0, name: "About", to: "/about", selected: false },
-  { id: 1, name: "Articles", to: "/article_list", selected: true },
-  { id: 2, name: "Release", to: "/release", selected: false },
-  { id: 3, name: "Editor", to: "/article_editor", selected: false },
+  { id: 0, name: "About", to: "/about", selected: false },  
+  { id: 1, name: "Articles", to: "/article_list", selected: false },
+  { id: 2, name: "MeFeed", to: "/mefeed", selected: true },  
+  // { id: 1, name: "Release", to: "/release", selected: false },
+
 ]);
 
 function selectMainMenu(categoryId: number): void {
@@ -65,11 +66,12 @@ function changeMainMenuColor(category: Category): ColorStyle {
 
 onMounted(() => {
   changeMainMenuColor(categories.value[0]);
-  selectMainMenu(0);  
+  selectMainMenu(2);  
 });
 
 const router = useRouter();
-router.push('/about');
+// router.push('/mefeed');
+router.push('/game/lots');
 
 </script>
 

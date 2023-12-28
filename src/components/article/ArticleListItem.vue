@@ -20,8 +20,9 @@ defineEmits(['detail'])
         />
         <div class="text">
           <div class="title" @click="$emit('detail')">{{ title }}</div>
-          <div class="contents" @click="$emit('detail')">{{ contents }}</div>
-          <div class="date">작성일: {{ createdAt }} | 작성자: {{ author }}</div>
+          <div class="contents" @click="$emit('detail')">{{ contents }}</div>          
+          <div class="author">{{ author }}</div>
+          <div class="date">{{ createdAt?.split(' ')[0] }}</div>
         </div>
       </div>
       <hr class="line" />

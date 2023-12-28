@@ -8,13 +8,17 @@ import About from './components/About.vue';
 import Release from './components/Release.vue';
 import ArticleDetailComplex from './components/ArticleDetailComplex.vue';
 import ArticleEditorComplex from './components/ArticleEditorComplex.vue';
+import MeFeedHomeComplex from './components/MeFeedHomeComplex.vue';
+import PlayLots from './components/game/PlayLots.vue';
 
 const routes = [
   { path: '/article_list', name: 'article_list', component: ArticleListComplex },
   { path: '/about', component: About },
+  { path: '/mefeed', component: MeFeedHomeComplex },
   { path: '/release', component: Release },
   { path: '/article/:articleId', name: 'article_detail', component: ArticleDetailComplex },
   { path: '/article_editor', component: ArticleEditorComplex },
+  { path: '/game/lots', component: PlayLots },
 ];
 
 const router = createRouter({

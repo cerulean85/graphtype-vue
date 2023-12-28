@@ -1,37 +1,18 @@
 <template>
   <div id="appx">
     <h1>Editor</h1>
-    <!-- 어바웃 페이지 내용 추가 -->
-    <!-- <div>
-      <textarea v-model="title" placeholder="제목을 입력하세요."></textarea>
-    </div>
-    <div>
-      <textarea v-model="contents" placeholder="내용을 입력하세요."></textarea>
-    </div> -->
     
-    <!-- <div>
-      <div>제목</div>
-      <textarea style="width: 400px;" v-model="title" />
-    </div>
-    <div>
-      <div>내용</div>
-      <textarea style="width: 400px; height:300px;" v-model="contents" />
-    </div> -->
-    
-
-    <ArticleEditorComponent
+    <ArticleBasicEditorComponent
       v-model:title="article.title"
       v-model:contents="article.contents"
     >
       
-    </ArticleEditorComponent>
-
-
-    <!-- <div contenteditable="true" v-html="article.contents" @input="updateContent"></div> -->
+    </ArticleBasicEditorComponent>
     
-    <!-- <img :src="imageSrc"/> -->
-    
-    <input type="file" @change="handleFileChange">
+    <input type="file" id="fileInput" @change="handleFileChange">
+    <label for="fileInput" class="file-input-button">Choose a File</label>
+
+    <label>Choose a File</label>
 
     <div><button @click="submit">제출</button></div>
     
@@ -41,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import ArticleEditorComponent from './article/ArticleEditorComponent.vue';
+import ArticleBasicEditorComponent from './article/ArticleBasicEditorComponent.vue';
 import { ref, onMounted } from "vue"
 
 const article = ref({
@@ -305,6 +286,6 @@ function handleFileChange(event: any) {
 // };
 </script>
 
-<style scoped>
-/* 컴포넌트에 대한 스타일 추가 */
+<style lang="scss">
+@import "@/styles/contents.scss";
 </style>
