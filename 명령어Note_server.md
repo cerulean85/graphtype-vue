@@ -44,6 +44,7 @@ server {
 - sudo service stop nginx
 - sudo service restart nginx
 
+- sudo certbot certonly --standalone -d playbed.xyz
 - certbot certonly --standalone -d lots.kkennib.net
 - certbot certonly --standalone -d blog-rest.kkennib.net
  
