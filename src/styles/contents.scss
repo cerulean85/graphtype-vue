@@ -381,7 +381,8 @@ input[type="file"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 42px - 70px);
+    height: 100vh;
+    // height: calc(100vh - 42px - 70px);
 
     .feed-zone {
       width: 280px;
@@ -403,17 +404,19 @@ input[type="file"] {
           height: 36px;
           cursor: pointer;
           float: right;
-          margin-top: 4px;          
-          padding-right: 4px;
+          margin-top: 4px;    
+          margin-right: 4px;      
+          // padding-right: 20px;
         }
 
         .feed-search-input {
           width: calc(100% - 56px);
           height: 24px;
           font-family: 'Noto Sans KR', sans-serif;
+          font-size: 14px;
+          padding-left: 12px;
           border: none;          
           margin-left: 8px;
-          margin-right: 4px;
           margin-top: 10px;
         }
       }
@@ -553,6 +556,7 @@ input[type="file"] {
             resize: none; /* 사용자가 크기 조정하지 못하도록 설정 */
             font-size: 16px;
             outline: none; /* 기본 포커스 효과 제거 */
+            overflow-y: hidden;
           }
 
           .image {
@@ -576,8 +580,8 @@ input[type="file"] {
       background-color: #E6E6E9;
 
       .bot-monit-zone {
-        width: calc(100% - 40px);
-        height: 80px;
+        width: 100%;
+        height: 120px;
         padding: 20px;
         display: flex;
         align-items: center;

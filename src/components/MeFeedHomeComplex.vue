@@ -35,7 +35,7 @@
           </div>    
         </div>
 
-        <div class="loading-indicator" v-show="loading" :style="{ height: (loading ? 40 : 0 ) + 'px' }">Loading...</div>
+        <!-- <div class="loading-indicator" v-show="loading" :style="{ height: (loading ? 40 : 0 ) + 'px' }">Loading...</div> -->
       </div>
 
         <div class="user-zone">
@@ -116,10 +116,10 @@ let currentFeed: any = ref(getNewFeed());
 let currentRowIndex: number = 0;
 function updateRowIndex(idx: number) { currentRowIndex = idx; }
 
-let loading: any = ref(false);
-const isLoading = (): boolean => { return loading.value;}
-const showIndicate = () => { loading.value = true; }
-const hideIndicate = () => { loading.value = false; }
+// let loading: any = ref(false);
+// const isLoading = (): boolean => { return loading.value;}
+// const showIndicate = () => { loading.value = true; }
+// const hideIndicate = () => { loading.value = false; }
 const isSelected = (articleId: string): boolean => { return articleId == currentFeed.value.articleId; }
 let feedbackStateMessage: any = ref(getFeedbackMessage(feedbackState.wait));
 
@@ -145,10 +145,10 @@ function attachData(e: any) {
 }
 async function loadData() {
 
-  if (isLoading())
-    return;
+  // if (isLoading())
+  //   return;
 
-  showIndicate();
+  // showIndicate();
 
   const prefixUrl = `${remoteUrl}/articles`;
   const suffixUrl = searching() ? `search/${searchText.value}/${page.value}` : `${userId}/${page.value}`;
@@ -161,15 +161,17 @@ async function loadData() {
       resData.list.forEach((e: { contents: string; inventory: any; }) =>  {       
         e.contents = '';
         for (let item of e.inventory) {
-          if (item.type == "text")
+          if (item.type == "text") {            
             e.contents = item.contents.substring(0, 50);
+            break;
+          }
         }    
       });
 
       setTimeout(()=> {    
         feedList.value = getNewFeedList();
         let curFeedList = feedList.value;
-        for(var item of resData.list) {
+        for(var item of resData.list) {          
           curFeedList.push(item);
         }
 
@@ -180,7 +182,6 @@ async function loadData() {
         
         if (curFeedList.length == 0) createFeed();
         else detail(0);
-        console.log("666666");
         
 
       }, 1000)  
@@ -237,7 +238,9 @@ function checkBotState(articleId: string, updateFeedbackAction: any) {
           break;
       }
     },
-    (error: any) => { hideIndicate(); });
+    (error: any) => { 
+      // hideIndicate(); 
+    });
 }
 
 function createFeed() {

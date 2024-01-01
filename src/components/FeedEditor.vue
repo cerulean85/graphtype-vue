@@ -97,7 +97,7 @@ const showImageTag = (contents) => {
 }
 
 const calcHeight = () => {
-  const lineHeight = 20;
+  const lineHeight = 30;
   for (var ref of textareaRefs.value) {
     const fontWidth = 16;
     const lineLength = ref.clientWidth / fontWidth;

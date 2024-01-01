@@ -9,7 +9,8 @@ import Release from './components/Release.vue';
 import ArticleDetailComplex from './components/ArticleDetailComplex.vue';
 import ArticleEditorComplex from './components/ArticleEditorComplex.vue';
 import MeFeedHomeComplex from './components/MeFeedHomeComplex.vue';
-import PlayLots from './components/game/PlayLots.vue';
+import PlayLots from './components/bed/PlayLots.vue';
+import PlayFavorite from './components/bed/PlayFavorite.vue';
 
 const routes = [
   { path: '/article_list', name: 'article_list', component: ArticleListComplex },
@@ -18,7 +19,8 @@ const routes = [
   { path: '/release', component: Release },
   { path: '/article/:articleId', name: 'article_detail', component: ArticleDetailComplex },
   { path: '/article_editor', component: ArticleEditorComplex },
-  { path: '/game/lots', component: PlayLots },
+  { path: '/bed/lots', component: PlayLots },
+  { path: '/bed/favorite', component: PlayFavorite },
 ];
 
 const router = createRouter({
