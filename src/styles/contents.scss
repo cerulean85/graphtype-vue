@@ -1,6 +1,11 @@
 @import '../styles/variables.scss';
 @import url($font_noto-sans);
 
+
+.about {
+  font-family: 'Noto Sans KR', sans-serif;  
+}
+
 .list {
 
   margin-top: 32px; 
@@ -381,6 +386,7 @@ input[type="file"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     height: 100vh;
     // height: calc(100vh - 42px - 70px);
 
@@ -487,7 +493,8 @@ input[type="file"] {
       width: calc((100% - 280px) / 2);
       height: 100%;
       border-right: 1px solid #E6E6E9;
-      float: left;
+      // float: left;
+      resize: horizontal; /* Enable horizontal resizing */
 
       .user-control-zone {
         width: 100%;
@@ -572,12 +579,20 @@ input[type="file"] {
       }
     }
 
+    .zone-divider {
+      background-color: #CCCCCC  ; /* Red divider */
+      cursor: ew-resize;
+      width: 5px; /* Divider width */
+      height: 100vh;
+    }
 
-    .intelligence-zone {
+    .bot-zone {
       width: calc((100% - 280px) / 2);
       height: 100%;
-      float: left;
+      // float: left;
       background-color: #E6E6E9;
+      flex-grow: 1; /* Take up the remaining width */
+      overflow: auto; /* Scroll bars if content is large */
 
       .bot-monit-zone {
         width: 100%;
@@ -589,22 +604,56 @@ input[type="file"] {
         border-bottom: 1px solid #E6E6E9;
 
         .bot-thumbnail {
-          width: 80px;
-          height: 80px;
+          width: 72px;
+          height: 72px;
           border-radius: 50px;
         }
 
         .bot-rechat-button {
-          width: 44px;
-          height: 44px;
+          width: 36px;
+          height: 36px;
           margin-left: auto;
           cursor: pointer;
         }
 
         .bot-label {
           font-family: 'Noto Sans KR', sans-serif;
-          width: calc(100% - 144px);
-          padding: 10px;
+          width: calc(100% - 260px);
+          padding: 20px;
+          white-space: nowrap; /* 텍스트가 줄 바꿈하지 않도록 설정 */
+          overflow: hidden; /* 넘치는 부분을 숨기기 */
+          text-overflow: ellipsis; /* 넘치는 부분에 생략 부호(...) 추가 */
+        }
+      }
+
+      .bot-type_select {
+        font-size: 8px;
+
+        .bot-selected-img {
+          width: 30px; 
+          margin-right: 10px; 
+          font-size: 12px;
+        }
+
+        .bot-selected-lb {
+          font-size: 12px;
+          margin-right: 8px;
+        }
+
+        .bot-dropdown {
+          padding-top: 10px;
+
+          li {
+            font-size: 12px;
+            margin-left: 8px;
+            margin-right: 8px;
+            cursor: pointer;
+          }
+
+          img {
+            width: 30px; 
+            margin-right: 10px; 
+          }
         }
       }
 
@@ -617,9 +666,9 @@ input[type="file"] {
         padding: 20px;
 
         .bot-challege-item {
-          width: calc(100% - 60px);
+          width: 100%;
           background-color: white;
-          margin-bottom: 20px;
+          margin-bottom: 50px;
           border-radius: 5px;
           padding: 10px;
 
@@ -643,6 +692,7 @@ input[type="file"] {
             width: 100%;
             font-size: 18px;
             margin-bottom: 10px;
+            overflow-wrap: break-word;
           }
         }
       }
@@ -653,6 +703,8 @@ input[type="file"] {
     }
   }
 }
+
+
 
 .feed-editor-textarea {
     font-family: 'Noto Sans KR', sans-serif;
@@ -669,6 +721,8 @@ input[type="file"] {
 .material-icons-outlined.md-18 { font-size: 18px; }
 .material-icons-outlined.md-24 { font-size: 24px; }
 .material-icons-outlined.md-28 { font-size: 28px; }
+.material-icons-outlined.md-32 { font-size: 32px; }
 .material-icons-outlined.md-36 { font-size: 36px; }
 .material-icons-outlined.md-44 { font-size: 44px; }
 .material-icons-outlined.md-48 { font-size: 48px; }
+.material-icons-outlined.md-light { color: rgba(255, 255, 255, 1); }

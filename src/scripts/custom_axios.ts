@@ -1,66 +1,101 @@
 import axios from "axios";
 
-export async function remoteAxiosPost (
+export async function remoteAxiosPost(
   requestUrl: string,
   requestParameter: object,
-  successAction = (result: any) => {}, 
+  successAction = (result: any) => {},
   failAction = (error: any) => {}
 ) {
-
-  axios.post(requestUrl, requestParameter)
-  .then(function (response) {
-    console.log(response);
-    successAction(response);
-  })
-  .catch(function (error) {
-    console.trace();
-    console.log(error);
-    failAction(error);
-  });
+  axios
+    .post(requestUrl, requestParameter)
+    .then(function (response) {
+      console.log(response);
+      successAction(response);
+    })
+    .catch(function (error) {
+      console.trace();
+      console.log(error);
+      failAction(error);
+    });
 }
 
-export async function remoteAxiosDelete (
+export async function remoteAxiosDelete(
   requestUrl: string,
   requestParameter: object,
-  successAction = (result: any) => {}, 
+  successAction = (result: any) => {},
   failAction = (error: any) => {}
 ) {
-
-  axios.delete(requestUrl, { data: requestParameter })
-  .then(function (response) {
-    console.log(response);
-    successAction(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-    failAction(error);
-  });
+  axios
+    .delete(requestUrl, { data: requestParameter })
+    .then(function (response) {
+      console.log(response);
+      successAction(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+      failAction(error);
+    });
 }
 
-export async function remoteAxiosPut (
+export async function remoteAxiosDeleteToForm(
   requestUrl: string,
   requestParameter: object,
-  successAction = (result: any) => {}, 
+  successAction = (result: any) => {},
   failAction = (error: any) => {}
 ) {
-
-  axios.put(requestUrl, requestParameter)
-  .then(function (response) {
-    console.log(response);
-    successAction(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-    failAction(error);
-  });
+  axios
+    .delete(requestUrl, requestParameter)
+    .then(function (response) {
+      console.log(response);
+      successAction(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+      failAction(error);
+    });
 }
 
-export async function remoteAxiosGet (
+export async function remoteAxiosPut(
   requestUrl: string,
-  successAction = (result: any) => {}, 
+  requestParameter: object,
+  successAction = (result: any) => {},
   failAction = (error: any) => {}
-  )
-{
+) {
+  axios
+    .put(requestUrl, requestParameter)
+    .then(function (response) {
+      console.log(response);
+      successAction(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+      failAction(error);
+    });
+}
+
+export async function remoteAxiosPutToForm(
+  requestUrl: string,
+  requestParameter: object,
+  successAction = (result: any) => {},
+  failAction = (error: any) => {}
+) {
+  axios
+    .put(requestUrl, requestParameter)
+    .then(function (response) {
+      console.log(response);
+      successAction(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+      failAction(error);
+    });
+}
+
+export async function remoteAxiosGet(
+  requestUrl: string,
+  successAction = (result: any) => {},
+  failAction = (error: any) => {}
+) {
   await axios
     .get(requestUrl)
     .then((response) => {
@@ -79,9 +114,9 @@ export async function remoteAxiosGet (
 //   requestName: string,
 //   requestParameter: object,
 //   requestMethod: string = "POST",
-//   successAction = (result: any) => {}, 
+//   successAction = (result: any) => {},
 //   failAction = (error: any) => {}
-//   ) 
+//   )
 // {
 //   fetch(`${serverDomain}/${requestName}`, {
 //     method: requestMethod,

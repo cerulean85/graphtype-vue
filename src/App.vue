@@ -17,16 +17,38 @@
       </div>
     </header> -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" v-if="showNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" v-if="showMeFeed">
+      <div class="container-fluid">
+        <router-link class="navbar-brand" to="/mefeed">MeFeed</router-link>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">          
+            <li class="nav-item" v-for="category in meFeedCategories" :key="category.id">
+              <router-link class="nav-link" 
+              :class="{active: category.selected}" :to="category.to" 
+              @click="() => {
+                meFeedCategories.forEach( e => {
+                  e.selected = false
+                });
+                category.selected = true
+              }">{{ category.name }}</router-link>
+            </li>
+          </ul>
+          <span class="material-icons-outlined md-32 md-light">account_circle</span>
+        </div>        
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" v-if="showPlayBed">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">PlayBed</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            
-
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">          
             <li class="nav-item" v-for="category in bedCategories" :key="category.id">
               <router-link class="nav-link" 
               :class="{active: category.selected}" :to="category.to" 
@@ -37,26 +59,7 @@
                 category.selected = true
               }">{{ category.name }}</router-link>
             </li>
-
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li> -->
-            <!-- <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
           </ul>
-          <!-- <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form> -->
         </div>
       </div>
     </nav>
@@ -74,11 +77,11 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router'
-
-const showNav: any = ref(true);
+const showMeFeed: any = ref(true);
+const showPlayBed: any = ref(false);
 
 interface Category {
   id: number;
@@ -90,25 +93,23 @@ interface ColorStyle {
   color: string;
 }
 
-const categories = ref([
-  { id: 0, name: "About", to: "/about", selected: false },  
-  { id: 1, name: "Articles", to: "/article_list", selected: false },
-  { id: 2, name: "MeFeed", to: "/mefeed", selected: true },  
-  { id: 3, name: "BedLots", to: "/bed/lots", selected: false },
-  { id: 4, name: "BedFavorite", to: "/bed/favorite", selected: false },
+const meFeedCategories = ref([
+  { id: 0, name: "About", to: "/about", selected: false },
+  // { id: 1, name: "Articles", to: "/article_list", selected: false },
+  // { id: 2, name: "MeFeed", to: "/mefeed", selected: true },
+  // { id: 3, name: "BedLots", to: "/bed/lots", selected: false },
+  // { id: 4, name: "BedFavorite", to: "/bed/favorite", selected: false },
   // { id: 1, name: "Release", to: "/release", selected: false },
-
 ]);
 
 const bedCategories = ref([
   { id: 1, name: "제비뽑기", to: "/bed/lots", selected: true },
   { id: 2, name: "유용한 사이트", to: "/bed/favorite", selected: false },
   // { id: 1, name: "Release", to: "/release", selected: false },
-
 ]);
 
 function selectMainMenu(categoryId: number): void {
-  categories.value.forEach((e) => {
+  meFeedCategories.value.forEach((e) => {
     e.selected = e.id == categoryId ? true : false;
   });
 }
@@ -120,15 +121,14 @@ function changeMainMenuColor(category: Category): ColorStyle {
 }
 
 onMounted(() => {
-  changeMainMenuColor(categories.value[0]);
-  selectMainMenu(2);  
+  changeMainMenuColor(meFeedCategories.value[0]);
+  selectMainMenu(2);
 });
 
 const router = useRouter();
-// router.push('/mefeed');
+router.push("/mefeed");
 // router.push('/game/lots');
-router.push("/bed/lots");
-
+// router.push("/bed/lots");
 </script>
 
 <style lang="scss">

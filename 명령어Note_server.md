@@ -1,5 +1,8 @@
+=============================================
+- sudo apt update
+- sudo apt install openjdk-17-jdk
+=============================================
 - sudo apt install nginx
-
 - sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/lots 
 - sudo vim /etc/nginx/sites-available/lots 
 =============================================
@@ -11,7 +14,6 @@ server {
 }
 =============================================
 - sudo ln -s /etc/nginx/sites-available/lots /etc/nginx/sites-enabled/lots
-
 - sudo vim /etc/nginx/sites-available/lots-ssl
 =============================================
 server {
@@ -28,17 +30,14 @@ server {
 }
 =============================================
 - sudo ln -s /etc/nginx/sites-available/lots-ssl /etc/nginx/sites-enabled/lots-ssl
-
 - sudo vim /etc/nginx/nginx.conf
 =============================================
 1번줄 => user www-data → ubuntu 로 변경
 =============================================
 - tail -f /var/log/nginx/error.log # 로그 확인
-
 - sudo snap install --classic certbot
 - sudo service stop nginx
 - sudo certbot certonly --standalone -d lots.kkennib.net # nginx 내린 후 80포트가 닫힌 상태에서 진행해야 함
-- sudo service start nginx
 
 - sudo service start nginx
 - sudo service stop nginx
@@ -51,7 +50,7 @@ server {
 - /etc/nginx/sites-available/vue-app
 - /etc/nginx/sites-available/vue-app-ssl
 - /etc/nginx/sites-available/blog-rest-ssl
-- /etc/nginx/sites-enabled/vue-app
+- /etc/nginx/sites-enabled/vue-app[명령어Note_vue.md](%B8%ED%B7%C9%BE%EENote_vue.md)
 - /etc/nginx/sites-enabled/vue-app-ssl
 - /etc/nginx/sites-enabled/blog-rest-ssl
 
@@ -68,3 +67,4 @@ server {
 - Github > Settings > Developer settings > Personal access tokens > Tokens(classic) > 
 - Password 말썽 일으키면 위에서 새로 생성
 - Username은 cerulean85
+=============================================

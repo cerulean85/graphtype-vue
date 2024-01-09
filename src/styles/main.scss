@@ -9,6 +9,7 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: 'Noto Sans KR', sans-serif;  
 }
 
 header {
@@ -111,3 +112,12 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.material-icons-outlined.md-18 { font-size: 18px; }
+.material-icons-outlined.md-24 { font-size: 24px; }
+.material-icons-outlined.md-28 { font-size: 28px; }
+.material-icons-outlined.md-32 { font-size: 32px; }
+.material-icons-outlined.md-36 { font-size: 36px; }
+.material-icons-outlined.md-44 { font-size: 44px; }
+.material-icons-outlined.md-48 { font-size: 48px; }
+.material-icons-outlined.md-light { color: rgba(255, 255, 255, 1); }
