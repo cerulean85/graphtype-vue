@@ -1,0 +1,119 @@
+@import '../styles/variables.scss';
+@import url($font_noto-sans);
+
+$size: 160px;
+$circleColor: #222;
+$progressBackgroundColor: #fff;
+$progressColor: #03c75a;
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+        @if $i < $max { $animations: #{$animations + ', '}; }
+    }
+    animation: $animations;
+}
+@mixin frame($type) {
+    @if ($type == 'circle_progress') {
+        position: relative;
+        width: $size;
+        height: $size;
+        background-color: $circleColor;
+    }
+    @else {
+        position: absolute;
+    }
+
+    @if ($type == 'left') or ($type == 'right') {
+        top: 0;
+        left: 0;
+        width: $size;
+        height: $size;
+    }
+    @else if ($type == 'left_bar') or ($type == 'right_bar') {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    @else if ($type == 'value') {
+        top: $size*0.1;
+        left: $size*0.1;
+        right: $size*0.1;
+        bottom: $size*0.1;
+        line-height: $size*0.8;
+        font-size: 16px;
+        color: #888;
+        text-align: center;
+    }
+    border-radius: 50%;
+
+    @if ($type == 'left') or ($type == 'right_bar') {
+        clip: rect(0, $size/2, $size, 0);
+    }
+    @else if ($type == 'right') or ($type == 'left_bar') {
+        clip: rect(0, $size, $size, $size/2);
+    }
+
+    @if ($type == 'left') or ($type == 'right') {
+        background-color: $progressBackgroundColor;
+    }
+    @else if ($type == 'left_bar') or ($type == 'right_bar') {
+        background-color: $progressColor;
+    }
+    @else if ($type == 'value') {
+        background-color: $circleColor;
+    }
+
+    @if ($type == 'left_bar') {
+        @include animation(left 5s linear 0s infinite);
+    }
+    @else if ($type == 'right_bar') {
+        @include animation(right 5s linear 0s infinite);
+    }
+}
+
+body { background-color: $circleColor }
+
+.circle_progress {
+    @include frame('circle_progress');
+    .left {
+        @include frame('left');
+        .bar {
+            @include frame('left_bar');
+        }
+    }
+    .right {
+        @include frame('right');
+        .bar {
+            @include frame('right_bar');
+        }
+    }
+    .value {
+        @include frame('value');
+    }
+}
+.btn_pause {
+    width: 100px;
+    height: 40px;
+    line-height: 15px;
+    margin-top: 10px;
+    padding: 10px 0;
+    text-align: center;
+}
+@keyframes left {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(0); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes right {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(180deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+}

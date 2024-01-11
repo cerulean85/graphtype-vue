@@ -8,14 +8,16 @@ import About from './components/About.vue';
 import Release from './components/Release.vue';
 import ArticleDetailComplex from './components/ArticleDetailComplex.vue';
 import ArticleEditorComplex from './components/ArticleEditorComplex.vue';
-import MeFeedHomeComplex from './components/MeFeedHomeComplex.vue';
+import MeFeedViewerComplex from './components/MeFeedViewerComplex.vue';
+import MeFeedAdminComplex from './components/MeFeedAdminComplex.vue';
 import PlayLots from './components/bed/PlayLots.vue';
 import PlayFavorite from './components/bed/PlayFavorite.vue';
 
 const routes = [
   { path: '/article_list', name: 'article_list', component: ArticleListComplex },
   { path: '/about', component: About },
-  { path: '/mefeed', component: MeFeedHomeComplex },
+  { path: '/', component: MeFeedViewerComplex },
+  { path: '/admin', component: MeFeedAdminComplex },
   { path: '/release', component: Release },
   { path: '/article/:articleId', name: 'article_detail', component: ArticleDetailComplex },
   { path: '/article_editor', component: ArticleEditorComplex },

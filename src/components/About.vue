@@ -3,15 +3,15 @@
   <div id="main" class="about">
     <h1 class="title">About.</h1>
     <hr />
-    
+
     <div class="scroll-container">
       <ul>
         <h2>기본 정보</h2>
         <li>닉네임: kkennib</li>
         <li>관심사: Generative AI, Text-to-X Model, AI Services</li>
         <li>비전: AI를 적극 활용하며 다양한 콘텐츠를 만들고 공유할 것</li>
-      </ul>    
-      <br/>
+      </ul>
+      <br />
       <ul>
         <h2>주요 역할</h2>
         <li>아이디어 기획</li>
@@ -50,8 +50,7 @@
     </div>
   </div>
 
-
-<!-- 
+  <!-- 
 
   - 이벤트 기반 서버 사이드 네트워크 애플리케이션 개발 플랫폼
   - 논블록킹 I/O와 단일 스레드, 이벤트 루프를 통해 높은 처리 성능과 확장성을 가진
@@ -122,10 +121,19 @@
 
 자바스크립트가 싱글쓰레드인 이유는?
 제어가 쉬워서이다-_- 멀티쓰레딩이나 멀티프로세시을 환경 경험해 본 사람이라면 이 이유에 무릎을 탁 칠 것이다. -->
-
 </template>
 
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
+<!--https://wit.nts-corp.com/2021/04/23/6338-->
 
 <style lang="scss">
 @import "@/styles/contents.scss";
+//@import "@/styles/timer.scss";
 </style>
