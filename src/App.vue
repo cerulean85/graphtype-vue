@@ -36,7 +36,7 @@
               }">{{ category.name }}</router-link>
             </li>
           </ul>
-          <span class="material-icons-outlined md-32 md-light">account_circle</span>
+<!--          <span class="material-icons-outlined md-32 md-light">account_circle</span>-->
         </div>        
       </div>
     </nav>
