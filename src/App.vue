@@ -127,7 +127,7 @@ onMounted(() => {
 
 const router = useRouter();
 // router.push("/about");
-router.push("/");
+// router.push("/");
 // router.push('/game/lots');
 // router.push("/bed/lots");
 </script>
