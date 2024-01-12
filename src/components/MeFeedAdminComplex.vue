@@ -448,17 +448,15 @@ onMounted(() => {
     }
   });
 
-  /*
-window.addEventListener('beforeunload', function (event) {
-  const message = '변경사항이 저장되지 않을 수 있습니다.';
-  event.returnValue = message;
-  return message;
-});
+  window.addEventListener("beforeunload", function (event) {
+    const message = "변경사항이 저장되지 않을 수 있습니다.";
+    event.returnValue = message;
+    return message;
+  });
 
-window.addEventListener('unload', async function (event) {
-  // update();
-});
-*/
+  window.addEventListener("unload", async function (event) {
+    updateFeed();
+  });
 
   let isDragging = false;
 
@@ -468,7 +466,6 @@ window.addEventListener('unload', async function (event) {
     return;
   }
 
-  /* Event listener for mousedown event to start dragging */
   divider.addEventListener("mousedown", function (e) {
     isDragging = true;
     document.addEventListener("mousemove", onMouseMove);
@@ -476,7 +473,6 @@ window.addEventListener('unload', async function (event) {
     e.preventDefault();
   });
 
-  /* Function to resize the left and right panels on mousemove */
   function onMouseMove(e: any) {
     if (!isDragging) {
       return;
