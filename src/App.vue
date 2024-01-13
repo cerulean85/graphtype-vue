@@ -19,7 +19,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" v-if="showMeFeed">
       <div class="container-fluid">
-        <router-link class="navbar-brand fw-bold" to="/mefeed">MeFeed</router-link>
+        <router-link class="navbar-brand fw-bold" to="/" @click="()=> {
+          meFeedCategories.forEach( e=> {
+            e.selected = false;
+          });
+        }">MeFeed</router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -94,7 +98,7 @@ interface ColorStyle {
 }
 
 const meFeedCategories = ref([
-  // { id: 0, name: "About", to: "/about", selected: false },
+  { id: 0, name: "About", to: "/about", selected: false },
   // { id: 1, name: "Articles", to: "/article_list", selected: false },
   // { id: 2, name: "MeFeed", to: "/mefeed", selected: true },
   // { id: 3, name: "BedLots", to: "/bed/lots", selected: false },
