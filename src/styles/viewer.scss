@@ -433,6 +433,12 @@ input[type="file"] {
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
 
+        .feed-not-found {
+          font-size: 14px;
+          color: #4E4E4E;
+          text-align: center;
+          margin-top: 24px;
+        }
     
         .feed-item-layout {
           display: flex;

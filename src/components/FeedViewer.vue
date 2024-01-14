@@ -9,10 +9,6 @@ const textareaRefs = ref([]);
 const showImageTag = (contents: string) => {
   const imageUrlRegex = /(https?:\/\/[^\s]+)/g;
   const matches = contents.match(imageUrlRegex);
-
-  console.log(contents);
-  console.log(matches);
-
   return matches;
 };
 </script>

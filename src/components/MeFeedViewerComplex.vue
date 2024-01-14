@@ -18,6 +18,9 @@
         </div>
 
         <div class="feed-list-zone" @scroll="attachData">
+          <div class="feed-not-found" v-if="feedList.length == 0">
+            Feed가 존재하지 않습니다.
+          </div>
           <div
             class="feed-item-layout"
             v-for="(feed, index) in feedList"
@@ -223,17 +226,23 @@ async function loadData() {
       setTimeout(() => {
         feedList.value = getNewFeedList();
         let curFeedList = feedList.value;
+        console.debug(curFeedList);
+        console.debug(curFeedList);
+        console.debug(curFeedList);
         for (var item of resData.list) {
           curFeedList.push(item);
         }
 
-        // totalPageCount = resData.totalPageCount;
-        // totalItemCount.value = resData.totalItemCount;
-        // page.value++;
-        // hideIndicate();
+        curFeedList.sort((obj1: any, obj2: any) => {
+          const dateTime1: any = new Date(obj1.createdAt);
+          const dateTime2: any = new Date(obj2.createdAt);        
+          // return dateTime2 - dateTime1; // ASC
+          return dateTime1 - dateTime2; // DESC
+        })
 
         if (curFeedList.length == 0) createFeed();
         else detail(0);
+
       }, 1000);
     },
     (error: any) => {
